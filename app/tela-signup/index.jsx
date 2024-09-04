@@ -67,6 +67,7 @@ export default telaSignup = () => {
           container: {
             flex: 1,
             padding: 16,
+            alignItems: 'center',
             justifyContent: 'center',
           },
 
