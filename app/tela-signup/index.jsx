@@ -6,25 +6,24 @@ export default telaSignup = () => {
   const [email, setEmail] = useState('ramon.brignoli@edu.sc.senai.br');
   const [senha, setSenha] = useState('senhasupersegura');
 
-  const handleSignup = async () => {
-    try {
-      const response = await fetch('https://taskhub-s37f.onrender.com/auth/signup', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          "name":nome,
-          "email":email,
-          "password":senha
-        }),
+  const handleSignup = function() {
+    fetch('https://taskhub-s37f.onrender.com/auth/signup', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "name": nome,
+        "email": email,
+        "password": senha
       })
-        .then((res)=>{if(res==200) allert('Usuário cadastrado com sucesso!')})
-
-    } catch (error) {
-      console.error('Error during signup', error);
-    }
+    })
+      .then((res) => {
+        if (res.status == 200)
+          allert('Usuário cadastrado com sucesso!')
+      })
+      .catch((err) => {console.log(err)})
   };
 
   return (
