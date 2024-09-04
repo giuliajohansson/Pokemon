@@ -69,13 +69,18 @@ export default telaSignup = () => {
             padding: 16,
             justifyContent: 'center',
           },
+
           title: {
             fontSize: 24,
             marginBottom: 16,
             textAlign: 'center',
           },
           input: {
-            height: 40,
+            backgroundColor: '#f9fafb',
+            borderWidth: 2,
+            borderRadius: 10,
+            borderColor: '#001d6e',
+            height: 50,
             borderColor: '#ccc',
             borderWidth: 1,
             marginBottom: 12,
