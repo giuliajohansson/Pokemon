@@ -81,9 +81,22 @@ export default telaSignup = () => {
             borderRadius: 10,
             borderColor: '#001d6e',
             height: 50,
+            width: 230,
             borderColor: '#ccc',
             borderWidth: 1,
             marginBottom: 12,
             paddingHorizontal: 8,
+          },
+
+          button: {
+            width: 230,
+            height: 58,
+            borderRadius: 50,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#1f2937',
+            borderWidth: 2,
+            borderRadius: 10,
+            borderColor: '#1f2937',
           },
         });
