@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, Pressable, TextInput } from 'react-native';
 
 export default telaSignup = () => {
-  const [nome, setNome] = useState('ramon b');
-  const [email, setEmail] = useState('ramon.brignoli@edu.sc.senai.br');
-  const [senha, setSenha] = useState('senhasupersegura');
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   const handleSignup = function() {
     fetch('https://taskhub-s37f.onrender.com/auth/signup', {
@@ -21,7 +21,7 @@ export default telaSignup = () => {
     })
       .then((res) => {
         if (res.status == 200)
-          allert('Usuário cadastrado com sucesso!')
+          alert('Usuário cadastrado com sucesso!')
       })
       .catch((err) => {console.log(err)})
   };
