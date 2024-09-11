@@ -1,25 +1,38 @@
 import { useState } from 'react'
-import { View, Text, Stylesheet, Picker } from 'react-native'
+import { View, Text, Stylesheet} from 'react-native'
 import {Picker} from '@react.native.picker'
-import styles from './styles.jsx'
 
-
+const styles = StyleSheet.create({
+    container:{
+        display:"flex",
+        flexDirection: 'column',
+        justifyContent: 'center',
+        height: '100%',
+        width: '100%',
+    },
+});
 
 const Pokemon = () => {
-    const [pokemon, setPokemon] = useState('')
+    const [pokemon, setPokemon] = useState('');
+    const [tipo, setTipo] = useState('');
+    const [listaPokemons, setListaPokemons] = useState([]);
+    const [listaTipos, setListaTipos] = useState([]);
 
-//    const lista_pokemons = [
-//        {nome:'Charizard', id:1},
-//        {nome:'Blastoise', id:2},
-//        {nome:'Charizard', id:3}
-//    ]
+    useEffect(() => {
+        fetch("https://pokeapi.co/api/v2/type")
+            .then(resposta => resposta.json())
+            .then(dados => setListaTipos(dados.results))
+            .catch(error => console.log("aconteceu um erro", error));
+    }, []);
 
-   useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon')
-        .then(resposta => resposta.json())
-        .then(dados => setListaPokemons(dados.reults))
-        .catch(console.log('Aconteceu um erro'))
-    })
+    useEffect(() => {
+        if (tipo) {
+            fetch(`https://pokeapi.co/api/v2/type/${tipo}`)
+                .then(resposta => resposta.json())
+                .then(dados => setListaPokemons(dados.pokemon))
+                .catch(error => console.log("aconteceu um erro tipos", error));
+        }
+    }, [tipo]);
 
     return (
         <View>
