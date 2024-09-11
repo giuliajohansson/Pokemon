@@ -35,21 +35,29 @@ const Pokemon = () => {
     }, [tipo]);
 
     return (
-        <View>
-        <Text>Selecione</Text>
-        <Picker
-            style={stylers.pickerInput}
-            selectedValue={pokemon}
-            onValueChange={(item) => setPokemon(item)}
-        >
-            <Picker.item labem={'Selecione um Pokémon'}/>
-            {lista_pokemons.map((item, index) => (
-                <Picker.Item key={index} label={item.name} value={item.url} />
-            ))}
-        </Picker>
-        {pokemon?<Text>Você selecionou {pokemon}</Text>:''}
+        <View style={styles.container}>
+            <Text>Selecione o tipo</Text>
+            <Picker style={styles.picker} selectedValue={tipo} onValueChange={(item) => setTipo(item)}>
+                {listaTipos.map((item) => (
+                    <Picker.Item key={item.name} label={item.name} value={item.name} />
+                ))}
+            </Picker>
+
+            {tipo && (
+                <View>
+                    <Text>Selecione o Pokemon</Text>
+                    <Picker style={styles.picker} selectedValue={pokemon} onValueChange={(item) => setPokemon(item)}>
+                        {listaPokemons.map((item) => (
+                            <Picker.Item key={item.pokemon.name} label={item.pokemon.name} value={item.pokemon.name} />
+                        ))}
+                    </Picker>
+                </View>
+
+            )}
+
+            {pokemon && <Text>Você selecionou {pokemon} do tipo {tipo}</Text>}
         </View>
-    )
+    );
 }
 
-export default Pokemon
+export default Pokemon;
