@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#e6f7ff', // Fundo azul suave
+    backgroundColor: '#f5f5f5',
   },
   contentContainer: {
     justifyContent: 'center',
@@ -14,25 +14,26 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: '#db0d17',
     borderRadius: 10,
     marginBottom: 20,
-    shadowColor: '#000', // Sombra para dar profundidade
+    shadowColor: '#000', 
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    elevation: 5, // Para Android
+    elevation: 5, 
     padding: 10,
   },
   picker: {
     height: 50,
     width: '100%',
+    color: '#f5f5f5',
   },
   text: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: '600',
-    color: '#333',
-    marginBottom: 10,
+    color: '#0b23bd',
+    marginBottom: 23,
   },
   pokemonList: {
     marginTop: 20,
@@ -67,13 +68,14 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#007acc', // Azul mais forte para o título
+    color: '#0b23bd', // Azul mais forte para o título
   },
   pickerLabel: {
     fontSize: 18,
     fontWeight: '500',
-    color: '#007acc',
+    color: '#f5f5f5',
     marginBottom: 10,
+    
   },
 });
 
