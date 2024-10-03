@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 25,
     fontWeight: '600',
-    color: '#0b23bd',
+    color: '#0f0f0f',
     marginBottom: 23,
   },
   pokemonList: {
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#0b23bd', // Azul mais forte para o título
+    color: '#0f0f0f',
   },
   pickerLabel: {
     fontSize: 18,
@@ -80,14 +80,13 @@ const styles = StyleSheet.create({
 });
 
 const Pokemon = () => {
-  const [pokemon, setPokemon] = useState(''); // Estado para o Pokémon selecionado
-  const [tipo, setTipo] = useState(''); // Estado para o tipo de Pokémon
-  const [listaPokemons, setListaPokemons] = useState([]); // Lista de Pokémon filtrados
-  const [listaTipos, setListaTipos] = useState([]); // Lista de tipos de Pokémon
-  const [limit, setLimit] = useState(10); // Controla a quantidade de Pokémon retornados
-  const [pokemonSelecionado, setPokemonSelecionado] = useState(null); // Dados do Pokémon selecionado
+  const [pokemon, setPokemon] = useState(''); 
+  const [tipo, setTipo] = useState(''); 
+  const [listaPokemons, setListaPokemons] = useState([]);
+  const [listaTipos, setListaTipos] = useState([]);
+  const [limit, setLimit] = useState(10); 
+  const [pokemonSelecionado, setPokemonSelecionado] = useState(null);
 
-  // Fetch para listar todos os tipos de Pokémon
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/type')
       .then((resposta) => resposta.json())
@@ -95,7 +94,6 @@ const Pokemon = () => {
       .catch((error) => console.log('aconteceu um erro', error));
   }, []);
 
-  // Fetch para listar os Pokémon filtrados pelo tipo selecionado
   useEffect(() => {
     if (tipo) {
       fetch(`https://pokeapi.co/api/v2/type/${tipo}`)
@@ -108,7 +106,6 @@ const Pokemon = () => {
     }
   }, [tipo, limit]);
 
-  // Fetch para obter dados do Pokémon selecionado
   useEffect(() => {
     if (pokemon) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
@@ -116,7 +113,7 @@ const Pokemon = () => {
         .then((dados) => {
           setPokemonSelecionado({
             name: dados.name,
-            image: dados.sprites.front_default, // Imagem do Pokémon
+            image: dados.sprites.front_default,
           });
         })
         .catch((error) => console.log('aconteceu um erro ao obter o pokemon', error));
