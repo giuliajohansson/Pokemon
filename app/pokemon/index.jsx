@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, ImageBackground } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#f5f5f5',
   },
   contentContainer: {
     justifyContent: 'center',
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     width: '100%',
-    backgroundColor: '#db0d17',
+    backgroundColor: '#fb6f92',
     borderRadius: 10,
     marginBottom: 20,
     shadowColor: '#000', 
@@ -30,9 +29,9 @@ const styles = StyleSheet.create({
     color: '#f5f5f5',
   },
   text: {
-    fontSize: 25,
+    fontSize: 28,
     fontWeight: '600',
-    color: '#0f0f0f',
+    color: '#b9375e',
     marginBottom: 23,
   },
   pokemonList: {
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#0f0f0f',
+    color: '#b9375e',
   },
   pickerLabel: {
     fontSize: 18,
@@ -121,6 +120,7 @@ const Pokemon = () => {
   }, [pokemon]);
 
   return (
+    <ImageBackground source={{uri: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/24628798-f3d0-411c-be85-8e11d898ab54/d4h6fk6-599e6d1d-01bd-4ca4-8cf0-36c6814d466b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI0NjI4Nzk4LWYzZDAtNDExYy1iZTg1LThlMTFkODk4YWI1NFwvZDRoNmZrNi01OTllNmQxZC0wMWJkLTRjYTQtOGNmMC0zNmM2ODE0ZDQ2NmIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ODuvZUyll4JlhywilY5njNr8vIHxqvy6klLLTHW9JAg"}} resizeMode="cover" style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', opacity: 0.6}}>
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <Text style={styles.title}>Selecione seu Pokémon</Text>
 
@@ -180,6 +180,7 @@ const Pokemon = () => {
         </View>
       )}
     </ScrollView>
+    </ImageBackground>
   );
 };
 
